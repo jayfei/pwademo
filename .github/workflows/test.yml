@@ -1,0 +1,22 @@
+# This is a basic workflow to help you get started with Actions
+
+name: A TEST CI
+
+on:
+  workflow_dispatch:
+
+jobs:
+  buildTest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: 运行一行代码
+        run: echo Hello, world!
+      - name: 进入目录
+        run: 
+          cd src
+      - name: 打包
+        uses: actions/upload-artifact@v2.3.1
+        with:
+          name: package
+          path: js
